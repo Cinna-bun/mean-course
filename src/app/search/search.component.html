@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-form-field>
+      <input matInput placeholder="Search..." type="text" title="search" name="search" [(ngModel)]="value">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearValue()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button (click)="onSearch()" color="accent">Search</button>
+</mat-card>

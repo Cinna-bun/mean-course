@@ -1,0 +1,30 @@
+<mat-accordion multi="true" *ngIf="posts.length > 0">
+  <mat-expansion-panel *ngFor="let post of posts">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ post.title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{ post.content }}</p>
+      <mat-action-row>
+          <button mat-button color="accent" (click)="beginEdit(post.id)">Edit</button>
+          <button mat-button color="warn" (click)="onDelete(post.id)">Delete</button>
+      </mat-action-row>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-card *ngIf="this.editing">
+  <form (submit)="onEditPost(editForm, this.editedPost.id)" #editForm="ngForm">
+      <mat-form-field>
+        <input matInput placeholder="{{ this.editedPost.title }}" type="text" name="title" ngModel required #title="ngModel">
+      </mat-form-field>
+    <mat-form-field>
+      <textarea rows="6" matInput placeholder="{{ this.editedPost.content }}" type="text" name="content" ngModel required #content="ngModel"></textarea>
+    </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="save-btn">Save Changes</button>
+      <button mat-raised-button color="warn" (click)="cancelEdit(editForm)">Cancel</button>
+  </form>
+</mat-card>
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p>

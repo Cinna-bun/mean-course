@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+.info-text {
+  text-align: center;
+}
+
+.edit {
+  display: none;
+}
+
+mat-card {
+  margin-top: 1rem;
+}
+
+mat-form-field,
+textarea {
+  width: 100%;
+
+}
+
+.save-btn {
+  margin-right: 10px;
+}
